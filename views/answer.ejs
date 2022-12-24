@@ -5,32 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANSWER EJS</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
   <body style="display: flex; justify-content: center; align-items: center">
     <div class="container">
-      <h1 class="mb-4 mt-3" >Perguntar</h1>
-      <form action="">
-        <label for="answer-title">Título da Pergunta</label>
-        <input
-          type="text"
-          name="answer-title"
-          id="answer-title"
-          class="form-control mb-5"
-        />
+      <div class="card  mt-3">
+        <div class="card-header bg-light text-dark border-secondary">
+          <h2 class="mb-4">Perguntar</h2>
+        </div>
+        <div class="card-body bg-light text-dark">
+          <form action="">
+            <label for="answer-title">Título da Pergunta</label>
+            <input
+              type="text"
+              name="answer-title"
+              id="answer-title"
+              class="form-control mb-5"
+            />
 
-        <label for="answer-description">Descrição da Pergunta</label>
-        <textarea
-          name="answer-description"
-          id="answer-description"
-          cols="30"
-          rows="10"
-          class="form-control"
-        >
-        </textarea>
-        <button class="btn btn-success mt-2">Fazer Pergunta</button>
-      </form>
+            <label for="answer-description">Descrição da Pergunta</label>
+            <textarea
+              name="answer-description"
+              id="answer-description"
+              cols="30"
+              rows="10"
+              class="form-control"
+            >
+            </textarea>
+            <button class="btn btn-dark mt-2">Fazer Pergunta</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
   <script
@@ -48,5 +54,5 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
     crossorigin="anonymous"
   ></script>
-  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap/bootstrap.min.js"></script>
 </html>

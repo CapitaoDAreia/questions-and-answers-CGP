@@ -3,3 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    height: 100vh;
+    background: linear-gradient(180deg, #00002b, #000000);
+}
+
+.form-control:focus {
+    border-color: #00002b;
+    box-shadow: inset 0 0.1px 0.1px #000000, 0 0 8px #00002b;
+  }
