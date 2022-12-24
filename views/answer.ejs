@@ -4,12 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOME EJS</title>
+    <title>ANSWER EJS</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
   <body style="display: flex; justify-content: center; align-items: center">
-    <h1>HOME PAGE</h1>
+    <div class="container">
+      <h1 class="mb-4 mt-3" >Perguntar</h1>
+      <form action="">
+        <label for="answer-title">Título da Pergunta</label>
+        <input
+          type="text"
+          name="answer-title"
+          id="answer-title"
+          class="form-control mb-5"
+        />
+
+        <label for="answer-description">Descrição da Pergunta</label>
+        <textarea
+          name="answer-description"
+          id="answer-description"
+          cols="30"
+          rows="10"
+          class="form-control"
+        >
+        </textarea>
+        <button class="btn btn-success mt-2">Fazer Pergunta</button>
+      </form>
+    </div>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

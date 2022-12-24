@@ -10,6 +10,10 @@ app.get("/", (req: Request, res: Response) => {
   res.render("home");
 });
 
+app.get("/answer", (req: Request, res: Response)=>{
+  res.render("answer")
+})
+
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
