@@ -1,14 +1,19 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    height: 100vh;
-    background: linear-gradient(180deg, #00002b, #000000);
+body {
+  height: 100vh;
+  background: linear-gradient(180deg, #343a40, #000000);
 }
 
 .form-control:focus {
-    border-color: #00002b;
-    box-shadow: inset 0 0.1px 0.1px #000000, 0 0 8px #00002b;
-  }
+  border-color: #00002b;
+  box-shadow: inset 0 0.1px 0.1px #000000, 0 0 8px #00002b;
+}
+
+.custom-sizing-icon{
+    width: 30px;
+    height: 30px;
+}
