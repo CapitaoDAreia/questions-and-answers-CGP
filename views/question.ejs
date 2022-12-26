@@ -9,18 +9,18 @@
           <h2 class="mb-4">Perguntar</h2>
         </div>
         <div class="card-body bg-light text-dark">
-          <form action="">
-            <label for="answer-title">Título da Pergunta</label>
+          <form method="POST" action="/savequestion">
+            <label for="questionTitle">Título da Pergunta</label>
             <input
               type="text"
-              name="answer-title"
-              id="answer-title"
+              name="questionTitle"
+              id="question-title"
               class="form-control mb-5"
             />
-            <label for="answer-description">Descrição da Pergunta</label>
+            <label for="questionDescription">Descrição da Pergunta</label>
             <textarea
-              name="answer-description"
-              id="answer-description"
+              name="questionDescription"
+              id="question-description"
               cols="30"
               rows="10"
               class="form-control"
