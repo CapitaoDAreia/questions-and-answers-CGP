@@ -6,7 +6,7 @@ import Question from "./models/Questions";
 const app = express();
 const PORT = 4000;
 
-const QuestionInstance = new Question() //instances the Question model to create or connect the respective talbe into the DB
+const QuestionInstance = new Question(); //instances the Question model to create or connect the respective talbe into the DB
 
 connection //use connection with DB, that returns a promise
   .authenticate()
@@ -34,8 +34,13 @@ app.get("/question", (req: Request, res: Response) => {
 app.post("/savequestion", (req: Request, res: Response) => {
   const title = req.body.questionTitle;
   const description = req.body.questionDescription;
-
-  res.send(`${title} ${description}`);
+  Question.create({
+    title: title,
+    description: description,
+  }).then(()=>{
+    res.redirect('/')
+    console.log(res.statusCode)
+  })
 });
 
 app.listen(PORT, () => {
