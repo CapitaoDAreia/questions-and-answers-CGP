@@ -24,7 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false })); //translates received data 
 app.use(bodyParser.json()); //allows to read form data received as JSON
 
 app.get("/", (req: Request, res: Response) => {
-  res.render("home");
+  Question.findAll({ raw: true }).then((questions) => {
+    res.render("home", {
+      questions: questions
+    });
+  });
+  
 });
 
 app.get("/question", (req: Request, res: Response) => {
@@ -37,10 +42,10 @@ app.post("/savequestion", (req: Request, res: Response) => {
   Question.create({
     title: title,
     description: description,
-  }).then(()=>{
-    res.redirect('/')
-    console.log(res.statusCode)
-  })
+  }).then(() => {
+    res.redirect("/");
+    console.log(res.statusCode);
+  });
 });
 
 app.listen(PORT, () => {
