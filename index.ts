@@ -1,11 +1,22 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
+import connection from "./database/database";
 
 const app = express();
 const PORT = 4000;
 
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Database successfully conected...");
+  })
+  .catch((error: any) => {
+    console.log("Some error occurred...");
+  });
+
 app.set("view engine", "ejs"); //set EJS as view engine
 app.use(express.static("public")); //deliver static files
+
 app.use(bodyParser.urlencoded({ extended: false })); //translates received data in a JS structure
 app.use(bodyParser.json()); //allows to read form data received as JSON
 
