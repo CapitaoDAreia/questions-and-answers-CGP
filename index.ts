@@ -24,7 +24,9 @@ app.use(bodyParser.urlencoded({ extended: false })); //translates received data 
 app.use(bodyParser.json()); //allows to read form data received as JSON
 
 app.get("/", (req: Request, res: Response) => {
-  Question.findAll({ raw: true }).then((questions) => {
+  Question.findAll({ raw: true, order: [
+    ['id', 'DESC']
+  ] }).then((questions) => {
     res.render("home", {
       questions: questions
     });
