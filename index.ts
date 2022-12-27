@@ -1,9 +1,12 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import connection from "./database/database"; //import previous created connection with DB
+import Question from "./models/Questions";
 
 const app = express();
 const PORT = 4000;
+
+const QuestionInstance = new Question() //instances the Question model to create or connect the respective talbe into the DB
 
 connection //use connection with DB, that returns a promise
   .authenticate()
