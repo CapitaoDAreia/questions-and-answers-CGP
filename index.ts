@@ -1,14 +1,14 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
-import connection from "./database/database";
+import connection from "./database/database"; //import previous created connection with DB
 
 const app = express();
 const PORT = 4000;
 
-connection
+connection //use connection with DB, that returns a promise
   .authenticate()
   .then(() => {
-    console.log("Database successfully conected...");
+    console.log("Database successfully connected...");
   })
   .catch((error: any) => {
     console.log("Some error occurred...");
