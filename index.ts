@@ -64,6 +64,18 @@ app.post("/savequestion", (req: Request, res: Response) => {
   });
 });
 
+app.post('/answer', (req: Request, res: Response)=>{
+  const body = req.body.answerBody;
+  const questionId = req.body.respectiveQuestion;
+
+  Answers.create({
+    body: body,
+    questionId: questionId
+  }).then(()=>{
+    res.redirect(`/question/${questionId}`)
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
