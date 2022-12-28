@@ -17,6 +17,7 @@ body {
     width: 30px;
     height: 30px;
 }
-.custom-spacing-asking-container{
+.custom-spacing-asking-container,
+.custom-spacing-responding-container{
   margin-top: 4rem;
 }

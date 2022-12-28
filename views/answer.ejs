@@ -1,1 +1,12 @@
-<h1>Responder</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('partials/header.ejs');%>
+  <body>
+    <%- include ('partials/navbar.ejs');%>
+    <div class="container custom-spacing-responding-container text-light">
+      <h2><%= question.title %></h2>
+      <p><%= question.description %></p>
+    </div>
+  </body>
+  <%- include ('partials/scripts.ejs');%>
+</html>

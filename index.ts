@@ -43,7 +43,9 @@ app.get('/question/:id', (req: Request, res: Response)=>{
   }).then(question=>{
     if(question !== null){
       console.log(question)
-      res.render('answer')
+      res.render('answer', {
+        question: question
+      })
     }else{
       console.log('Not found!')
       res.redirect('/')
