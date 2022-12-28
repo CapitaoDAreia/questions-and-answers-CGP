@@ -21,3 +21,7 @@ body {
 .custom-spacing-responding-container{
   margin-top: 4rem;
 }
+
+.custom-rounded{
+  border-radius: 20px;
+}

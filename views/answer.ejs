@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <%- include ('partials/header.ejs');%>
   <body>
     <%- include ('partials/navbar.ejs');%>
     <div class="container custom-spacing-responding-container text-light">
       <h2><%= question.title %></h2>
       <p><%= question.description %></p>
+      <hr />
+      <form action="">
+        <textarea
+          name="answerBody"
+          placeholder="Responda aqui"
+          class="form-control mb-3"
+        >
+        </textarea>
+        <button type="submit" class="btn btn-success">Enviar Resposta</button>
+        <button type="reset" class="btn btn-warning">Limpar</button>
+        <a href="/"><button type="button" class="btn btn-danger" >Cancelar</button></a>
+      </form>
     </div>
   </body>
   <%- include ('partials/scripts.ejs');%>

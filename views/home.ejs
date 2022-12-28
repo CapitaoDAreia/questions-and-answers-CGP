@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <%- include ('partials/header.ejs');%>
   <body>
     <%- include ('partials/navbar.ejs');%>
-    <div class="container text-light mt-5">
+    <div class="container text-light custom-spacing-asking-container">
       <h2>RESPONDER PERGUNTAS</h2>
       <div>
         <% questions.forEach(question => { %>
@@ -13,7 +13,7 @@
             <h3 class="text-dark"><%= question.title %></h3>
           </div>
           <div class="card-footer">
-            <a href="/question/<%= question.id%>"><button class="btn btn-dark" >Responder</button></a>
+            <a href="/question/<%= question.id%>"><button class="btn btn-info" >Responder</button></a>
           </div>
         </div>
         <% }); %>
