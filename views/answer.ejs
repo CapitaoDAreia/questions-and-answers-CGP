@@ -21,6 +21,15 @@
           ><button type="button" class="btn btn-danger">Cancelar</button></a
         >
       </form>
+      <hr class="bg-light mb-5" >
+      <h2 class="mb-4" >Respostas</h2>
+      <%answers.forEach(answer => {%>
+        <div class="card text-dark mb-3">
+          <div class="card-body">
+            <p><%= answer.body %></p>
+          </div>
+        </div>
+      <% }) %>
     </div>
   </body>
   <%- include ('partials/scripts.ejs');%>

@@ -23,35 +23,37 @@ app.use(bodyParser.urlencoded({ extended: false })); //translates received data 
 app.use(bodyParser.json()); //allows to read form data received as JSON
 
 app.get("/", (_req: Request, res: Response) => {
-  Question.findAll({ raw: true, order: [
-    ['id', 'DESC']
-  ] }).then((questions) => {
+  Question.findAll({ raw: true, order: [["id", "DESC"]] }).then((questions) => {
     res.render("home", {
-      questions: questions
+      questions: questions,
     });
   });
-  
 });
 
 app.get("/question", (_req: Request, res: Response) => {
   res.render("question");
 });
 
-app.get('/question/:id', (req: Request, res: Response)=>{
+app.get("/question/:id", (req: Request, res: Response) => {
   const id = req.params.id;
   Question.findOne({
-    where: {id: id}
-  }).then(question=>{
-    if(question !== null){
-      res.render('answer', {
-        question: question
-      })
-    }else{
-      res.redirect('/')
+    where: { id: id },
+  }).then((question) => {
+    if (question !== null) {
+      Answers.findAll({
+        where: { questionId: question.dataValues.id },
+        order: [["id", "DESC"]],
+      }).then((answers) => {
+        res.render("answer", {
+          question: question,
+          answers: answers,
+        });
+      });
+    } else {
+      res.redirect("/");
     }
-  })
-
-})
+  });
+});
 
 app.post("/savequestion", (req: Request, res: Response) => {
   const title = req.body.questionTitle;
@@ -64,17 +66,17 @@ app.post("/savequestion", (req: Request, res: Response) => {
   });
 });
 
-app.post('/answer', (req: Request, res: Response)=>{
+app.post("/answer", (req: Request, res: Response) => {
   const body = req.body.answerBody;
   const questionId = req.body.respectiveQuestion;
 
   Answers.create({
     body: body,
-    questionId: questionId
-  }).then(()=>{
-    res.redirect(`/question/${questionId}`)
-  })
-})
+    questionId: questionId,
+  }).then(() => {
+    res.redirect(`/question/${questionId}`);
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
