@@ -6,8 +6,6 @@ import Question from "./models/Questions";
 const app = express();
 const PORT = 4000;
 
-const QuestionInstance = new Question(); //instances the Question model to create or connect the respective talbe into the DB
-
 connection //use connection with DB, that returns a promise
   .authenticate()
   .then(() => {
@@ -23,7 +21,7 @@ app.use(express.static("public")); //deliver static files
 app.use(bodyParser.urlencoded({ extended: false })); //translates received data in a JS structure
 app.use(bodyParser.json()); //allows to read form data received as JSON
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (_req: Request, res: Response) => {
   Question.findAll({ raw: true, order: [
     ['id', 'DESC']
   ] }).then((questions) => {
@@ -34,9 +32,25 @@ app.get("/", (req: Request, res: Response) => {
   
 });
 
-app.get("/question", (req: Request, res: Response) => {
+app.get("/question", (_req: Request, res: Response) => {
   res.render("question");
 });
+
+app.get('/question/:id', (req: Request, res: Response)=>{
+  const id = req.params.id;
+  Question.findOne({
+    where: {id: id}
+  }).then(question=>{
+    if(question !== null){
+      console.log(question)
+      res.render('answer')
+    }else{
+      console.log('Not found!')
+      res.redirect('/')
+    }
+  })
+
+})
 
 app.post("/savequestion", (req: Request, res: Response) => {
   const title = req.body.questionTitle;

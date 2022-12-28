@@ -17,3 +17,6 @@ body {
     width: 30px;
     height: 30px;
 }
+.custom-spacing-asking-container{
+  margin-top: 4rem;
+}
