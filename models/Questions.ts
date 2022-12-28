@@ -16,13 +16,6 @@ const Question = connection.define(
   {}
 );
 
-Question.sync({ force: false })
-  .then(() => {
-    console.log("Table Question has been created...");
-  })
-  .catch(() => {
-    console.log("Error on Question table creation...");
-  });
+Question.sync({ force: false });
 
-
-export default Question
+export default Question;

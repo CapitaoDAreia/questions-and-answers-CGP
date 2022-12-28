@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import connection from "./database/database"; //import previous created connection with DB
 import Question from "./models/Questions";
+import Answers from "./models/Answers";
 
 const app = express();
 const PORT = 4000;
@@ -42,12 +43,10 @@ app.get('/question/:id', (req: Request, res: Response)=>{
     where: {id: id}
   }).then(question=>{
     if(question !== null){
-      console.log(question)
       res.render('answer', {
         question: question
       })
     }else{
-      console.log('Not found!')
       res.redirect('/')
     }
   })
@@ -62,7 +61,6 @@ app.post("/savequestion", (req: Request, res: Response) => {
     description: description,
   }).then(() => {
     res.redirect("/");
-    console.log(res.statusCode);
   });
 });
 
